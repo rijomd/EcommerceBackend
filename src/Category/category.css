@@ -1,0 +1,150 @@
+.box {
+    height: 100px;
+    width: 80%;
+    padding: 10px;
+}
+
+.rendermainCategories {
+    margin: 10px;
+    /* background-color: #fff; */
+}
+
+.box img {
+    height: 75%;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.flexble_grid img:hover {
+    width: 100%;
+    object-fit: contain;
+    height: 150px;
+    opacity: 1;
+}
+
+.flex_catlist img:hover {
+    width: 100%;
+    object-fit: contain;
+    height: 145px;
+}
+
+.box p {
+    text-align: center;
+    font-size: 13px;
+}
+
+.flexible_category_para {
+    padding: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    flex: 1;
+    line-height: 32px;
+}
+
+.flex_div_cateory {
+    display: flex;
+    padding: 2px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.flexble_grid {
+    height: 220px;
+    background-color: white;
+}
+.flexble_gridList{
+    height: 220px;
+    background-color: white;
+}
+.flexble_grid p {
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    font-weight: 500;
+    width: 95%;
+}
+
+.flexble_grid img {
+    width: 95%;
+    object-fit: contain;
+    height: 140px;
+    opacity: 1;
+}
+
+.flex_catlist {
+    background-color: white;
+    min-height: 75vh;
+    margin-top: 3px;
+}
+
+.flex_catlist h1 {
+    text-align: center;
+    font-size: 23px;
+    font-family: initial;
+    font-weight: bold;
+    padding: 5px;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    box-shadow: 0px 0px 10px 0px #eae6e6;
+    margin-bottom: 1rem;
+}
+
+.flex_catlist p {
+    text-align: center;
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+}
+
+.flex_catlist img {
+    width: 100%;
+    object-fit: contain;
+    height: 140px;
+}
+
+.box p:hover {
+    color: #1976d2;
+    cursor: pointer;
+}
+
+.css-1wdhli5-MuiButtonBase-root-MuiButton-root {
+    background-color: #2874f0 !important;
+}
+
+@media (max-width: 768px) {
+    .rendermainCategories {
+        margin: 1px;
+    }
+
+    .flexible_category_para {
+        font-size: 15px;
+    }
+
+    .flex_div_cateory {
+        border-bottom: none;
+    }
+    .flexble_grid {
+        border: 1px solid #ccc;
+        border-right: none;
+        border-bottom: none !important;
+    }
+    .flexble_grid img {
+        width: 85%;
+    }
+
+    .flexble_grid p {
+        width: 85%;
+    }
+    .flexble_gridList{
+        height: 220px;
+        background-color: white;
+        border: 1px solid #ccc;
+    }
+    .flexble_gridList{
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+    .flex_catlist img{
+        width: 75%;
+    }
+}

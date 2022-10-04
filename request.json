@@ -1,0 +1,283 @@
+{
+    "info": {
+        "name": "flipcartclone_Website",
+        "schema": "URL='mongodb://127.0.0.1:27017/flipclone'",
+        "localstorage_items": {
+            "changing caegorylisting in home ": "flexible_categoryArray",
+            "changing productlisting in home ": "flexible_productArray",
+            "cartlist items ": "cartlist_array",
+            "user- ": "user",
+            "token - ": "token",
+            "cart count": "cart_count",
+            "pricebar": "price_bar"
+        }
+    },
+    "item": [
+        {
+            "name": "HomeSection",
+            "item": [
+                {
+                    "name": "flexiblecategories",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "Content-Type": "application/json"
+                            }
+                        ],
+                        "params": {
+                            "flexible": true,
+                            "home_visibility": true,
+                            "status": 1,
+                            "type": 2
+                        },
+                        "url": "http://localhost:4000/iapi/categoryAllList"
+                    },
+                    "response": {
+                        "error_code": 0,
+                        "message": "Sucessfully added",
+                        "data": [
+                            {
+                                "_id": "62d7e915bbc1c4e3722c3203",
+                                "childs": [
+                                    {
+                                        "_id": "62d7eb63e13517c3e0c094ea",
+                                        "name": "Sports & action",
+                                        "image": "https://gshopclone.s3.ap-south-1.amazonaws.com/BDuKMdx1q-sports.jpg"
+                                    },
+                                    {
+                                        "_id": "62d7ec0de13517c3e0c094fc",
+                                        "name": "camera & tripoids",
+                                        "image": "https://gshopclone.s3.ap-south-1.amazonaws.com/mxT3ak3qE-tripoid.png"
+                                    },
+                                    {
+                                        "_id": "62d7ecbbe13517c3e0c09510",
+                                        "name": "camera lenses",
+                                        "image": "https://gshopclone.s3.ap-south-1.amazonaws.com/X87gmiWpc-camlens.jpg"
+                                    },
+                                    {
+                                        "_id": "62d7ed13e13517c3e0c09522",
+                                        "name": "drone",
+                                        "image": "https://gshopclone.s3.ap-south-1.amazonaws.com/LagLGgHY8-drone.jpg"
+                                    }
+                                ],
+                                "name": "camera & accessories",
+                                "parent_id": "62d1037e474694106f1c3030",
+                                "home_visibility": true,
+                                "image": "https://gshopclone.s3.ap-south-1.amazonaws.com/TrV-wFUjx-camera.jpg",
+                                "status": 1,
+                                "slug": "camera-and-accessories",
+                                "createdtime": 1658317077128,
+                                "type": 2,
+                                "__v": 0
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ProductSection",
+            "item": [
+                {
+                    "name": "productlisting",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "Content-Type": "application/json"
+                            }
+                        ],
+                        "params": {
+                            "category": "",
+                            "status": 1
+                        },
+                        "url": "http://localhost:4000/iapi/productlist"
+                    },
+                    "response": {
+                        "error_code": 0,
+                        "message": "Sucessfully added",
+                        "data": {
+                            "docs": [
+                                {
+                                    "_id": "62d96ef5e49504bf1f1484fe",
+                                    "specifications": [],
+                                    "productPictures": [
+                                        "https://gshopclone.s3.amazonaws.com/L0HMm86yJ-football.jpg",
+                                        "https://gshopclone.s3.ap-south-1.amazonaws.com/3dXDyFn1D-footbal2.jpg",
+                                        "https://gshopclone.s3.ap-south-1.amazonaws.com/3f4uFwefN-ftbll3.jpg"
+                                    ],
+                                    "reviews": [],
+                                    "category": {
+                                        "_id": "62d7eb63e13517c3e0c094ea",
+                                        "childs": [],
+                                        "parent_id": "62d7e915bbc1c4e3722c3203",
+                                        "name": "Sports & action",
+                                        "image": "https://gshopclone.s3.ap-south-1.amazonaws.com/BDuKMdx1q-sports.jpg",
+                                        "status": 1,
+                                        "slug": "Sports-and-action",
+                                        "createdtime": 1658317667729,
+                                        "type": 3,
+                                        "__v": 0
+                                    },
+                                    "name": "Vector",
+                                    "description": "anythinggggggggggggggggggggggggggggggg\nghjjjn\njkkhmnu\nmmnknvgn",
+                                    "orginal_price": 1800,
+                                    "sell_price": 1600,
+                                    "createdBy": {
+                                        "_id": "62d0f5b8a5f2f615ca007d41",
+                                        "__v": 0,
+                                        "activation_status": 0,
+                                        "createdAt": "2022-07-15T05:06:00.705Z",
+                                        "createdtime": 1657861560696,
+                                        "email": "rijomd@mail.com",
+                                        "name": "Rijo Md",
+                                        "phone": "7034910254",
+                                        "role": 3,
+                                        "status": 1,
+                                        "updatedAt": "2022-07-15T05:06:00.705Z"
+                                    },
+                                    "status": 1,
+                                    "slug": "Vector",
+                                    "createdtime": 1658416885273,
+                                    "createdAt": "2022-07-21T15:21:25.312Z",
+                                    "updatedAt": "2022-07-21T15:21:25.312Z",
+                                    "__v": 0,
+                                    "id": "62d96ef5e49504bf1f1484fe"
+                                }
+                            ],
+                            "total": 1,
+                            "limit": 10,
+                            "page": 1,
+                            "pages": 1
+                        }
+                    }
+                },
+                {
+                    "name": "singleproduct",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "Content-Type": "application/json"
+                            }
+                        ],
+                        "params": {
+                            "_id": "",
+                            "status": 1
+                        },
+                        "url": "http://localhost:4000/iapi/productlist"
+                    },
+                    "response": {
+                        "error_code": 0,
+                        "message": "Sucessfully added",
+                        "data": {
+                            "docs": [
+                                {
+                                    "_id": "62d96f6fe49504bf1f148526",
+                                    "specifications": [],
+                                    "productPictures": [
+                                        "https://gshopclone.s3.ap-south-1.amazonaws.com/rKH-E2xrl-boot.jpg",
+                                        "https://gshopclone.s3.ap-south-1.amazonaws.com/dxh4rVWEy-boot2.jpg",
+                                        "https://gshopclone.s3.ap-south-1.amazonaws.com/Dxt0Mjk8C-boot3.jpg"
+                                    ],
+                                    "reviews": [],
+                                    "category": {
+                                        "_id": "62d7eb63e13517c3e0c094ea",
+                                        "childs": [],
+                                        "parent_id": "62d7e915bbc1c4e3722c3203",
+                                        "name": "Sports & action",
+                                        "image": "https://gshopclone.s3.ap-south-1.amazonaws.com/BDuKMdx1q-sports.jpg",
+                                        "status": 1,
+                                        "slug": "Sports-and-action",
+                                        "createdtime": 1658317667729,
+                                        "type": 3,
+                                        "__v": 0
+                                    },
+                                    "createdBy": {
+                                        "_id": "62d0f5b8a5f2f615ca007d41",
+                                        "__v": 0,
+                                        "activation_status": 0,
+                                        "createdAt": "2022-07-15T05:06:00.705Z",
+                                        "createdtime": 1657861560696,
+                                        "email": "rijomd@mail.com",
+                                        "name": "Rijo Md",
+                                        "phone": "7034910254",
+                                        "role": 3,
+                                        "status": 1,
+                                        "updatedAt": "2022-07-15T05:06:00.705Z"
+                                    },
+                                    "sell_price": 900,
+                                    "orginal_price": 950,
+                                    "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available",
+                                    "name": "sevenk",
+                                    "status": 1,
+                                    "slug": "sevenk",
+                                    "createdtime": 1658417007785,
+                                    "createdAt": "2022-07-21T15:23:27.809Z",
+                                    "updatedAt": "2022-07-21T15:23:27.809Z",
+                                    "__v": 0,
+                                    "id": "62d96f6fe49504bf1f148526"
+                                }
+                            ],
+                            "total": 1,
+                            "limit": 10,
+                            "page": 1,
+                            "pages": 1
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Login Section",
+            "item": [
+                {
+                    "name": "Sign up",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "Content-Type": "application/json"
+                            }
+                        ],
+                        "params": {
+                            "name": "Rinto ",
+                            "password": "12345678",
+                            "phone": "9847221490",
+                            "role": 2
+                        },
+                        "url": "http://localhost:4000/iapi/signup"
+                    },
+                    "response": [
+                        {
+                            "error": {
+                                "error_code": 11,
+                                "message": "Aleready existing data",
+                                "data": {
+                                    "error_code": -11,
+                                    "message": "Aleready existing data",
+                                    "data": {}
+                                }
+                            },
+                            "success": {
+                                "error_code": 0,
+                                "message": "Sucessfully added",
+                                "data": {
+                                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmRlNzMzNmU2ODhlMTc2MDVjY2I5ODQiLCJuYW1lIjoiUmludG8iLCJwaG9uZSI6Ijk4NDcyMjE0OTAiLCJyb2xlIjoyLCJpYXQiOjE2NTg3NDU2NTUsImV4cCI6MTY2MTMzNzY1NX0.K0Jx5x9awxXczSX8yr2Txp2vVtxxvrKfBWOexlIkYlw",
+                                    "user": {
+                                        "_id": "62de7336e688e17605ccb984",
+                                        "name": "Rinto",
+                                        "phone": "9847221490",
+                                        "role": 2
+                                    },
+                                    "auth": true
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

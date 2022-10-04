@@ -1,0 +1,310 @@
+.name {
+    padding: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+}
+
+.name img {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+}
+
+.name div {
+    padding: 5px 0 0 16px;
+    width: calc(100% - 50px);
+}
+
+.name p {
+    font-size: 12px;
+}
+
+.name h5 {
+    padding-top: 3px;
+    font-size: 16px;
+    font-weight: 500;
+    align-items: center;
+    text-transform: capitalize;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.sidebar {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    margin-bottom: 16px;
+}
+
+.order {
+    padding: 20px 12px 5px 24px;
+    width: 100%;
+    border-bottom: 1px solid #e6e1e1;
+    display: flex;
+}
+
+.sidebar a {
+    width: calc(100% - 26px);
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #878787;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.settings p {
+    font-size: 14px;
+    padding: 5px 5px 5px 60px;
+    cursor: pointer;
+}
+
+.logout {
+    padding: 20px 12px 5px 24px;
+    width: 100%;
+    display: flex;
+}
+
+.account {
+    padding: 20px 12px 5px 24px;
+    width: 100%;
+    display: flex;
+
+}
+
+.account_setting {
+    border-bottom: 1px solid #e6e1e1;
+}
+
+.adress {
+    margin-left: 8px;
+    border-radius: 5px;
+    border: 1px solid #b5b8bb;
+    width: 83%;
+    background-color: #fff;
+}
+
+.address_text {
+    height: 100px !important;
+    width: 100%;
+    overflow: hidden;
+    border: none;
+    background-color: #fff;
+    padding: 16.5px 14px;
+    font-size: 16px;
+}
+
+textarea:focus {
+    border: 0 none #FFF;
+    overflow: hidden;
+    outline: none;
+}
+
+.error_par {
+    color: red;
+    font-size: 15px;
+    text-align: center;
+    background-color: white;
+    width: 70%;
+    margin: auto;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.type_adress {
+    margin-bottom: 10px;
+}
+
+.type_adress span {
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #878787;
+    vertical-align: middle;
+    padding: 4px 7px;
+    border-radius: 2px;
+    background-color: #f0f0f0;
+    font-weight: 500;
+    margin-right: 15px;
+}
+
+.adressbar {
+    border: 1px solid #e0e0e0;
+    margin-top: 20px;
+    border-radius: 2px 0;
+    padding: 15px 25px;
+}
+
+.adresslist {
+    background-color: #fff;
+    min-height: 88vh;
+    padding: 24px 32px;
+    position: relative;
+}
+
+.profile_lists {
+    background-color: white;
+}
+
+.adress_head {
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+    padding-bottom: 20px;
+}
+
+.add_adres {
+    font-size: 14px;
+    color: #2874f0;
+    font-weight: 500;
+    padding: 16px 0;
+    display: flex;
+    cursor: pointer;
+}
+
+.add_adres_div {
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    border-radius: 2px;
+    margin-bottom: 30px;
+}
+
+.adressbar p {
+    line-height: 1.5;
+}
+
+.add_name {
+    font-weight: 500;
+}
+
+.add_phone {
+    font-weight: 500;
+    margin: 0 0 0 15px;
+}
+
+.adress_adres {
+    font-size: 14px;
+    text-align: initial;
+    font-weight: 100;
+}
+
+.dropdown_profile {
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.dropdown_profile-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown_profile-content p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown_profile-content p:hover {
+    background-color: #ddd;
+}
+
+.dropdown_profile:hover .dropdown_profile-content {
+    display: block;
+}
+
+.add_addressForm {
+    border: 1px solid #e0e0e0;
+    background: #f5faff;
+    border-radius: 2px;
+    margin-bottom: 30px;
+}
+
+.add_addressForm p {
+    color: #2874f0;
+    font-weight: 500;
+    padding: 5px 7px;
+}
+
+.add_form {
+    padding: 25px;
+}
+
+.address_button button {
+    margin: 10px 8px;
+    width: 20%;
+}
+
+.hide {
+    display: none;
+}
+
+@media (max-width: 830px) {
+    .name {
+        box-shadow: none;
+        margin-bottom: 0px;
+    }
+
+    .adresslist {
+        padding: 24px 10px;
+    }
+
+    .adress {
+        width: 100%;
+    }
+
+    .profile_headermobile {
+        border: 1px solid #e1dede;
+        padding: 8px;
+        text-align: center;
+        display: flex;
+        border-radius: 3px
+    }
+
+    .profile_headermobile p {
+        flex: 1
+    }
+
+    .my_accountmobile p {
+        font-size: 18px;
+        font-weight: 500;
+        padding-left: 1rem;
+    }
+
+    .account_detils_mobile {
+        display: flex;
+        width: 70%;
+        padding-top: 1rem;
+        text-decoration: none;
+        color: black;
+    }
+
+    .profile_headermobile a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .account_detils_mobile span {
+        flex: 1;
+        text-align: center;
+    }
+
+    .account_detils_mobile p {
+        flex: 2;
+    }
+}

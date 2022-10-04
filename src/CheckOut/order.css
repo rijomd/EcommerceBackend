@@ -1,0 +1,39 @@
+.order_summer {
+    background-color: #2874f0;
+    color: white;
+    text-transform: uppercase;
+    padding: 1rem;
+    text-align: start;
+    margin-top: 1rem;
+    margin-bottom: -14px;
+}
+
+.delivery_addresses {
+    background-color: #2874f0;
+    color: white;
+    text-transform: uppercase;
+    padding: 1rem;
+    text-align: start;
+}
+
+.login_ordersummary {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.login_ordersummary div {
+    display: flex;
+}
+
+.login_ordersummary h1 {
+    color: #cccccc;
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+
+.login_ordersummar_para {
+    padding-right: 1rem;
+    color: #212121;
+    font-weight: 500;
+}

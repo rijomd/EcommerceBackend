@@ -1,0 +1,173 @@
+
+
+.linkContainer {
+    display: flex;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    padding-top: 1%;
+    flex: 1;
+}
+
+.aStyles {
+
+    color: white;
+    text-decoration: none;
+    line-height: 180%
+}
+
+.bottom {
+    text-align: center;
+    padding: 1%
+}
+
+.typo {
+    color: white;
+    font-size: 20px !important;
+    cursor: pointer;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+}
+
+.loader {
+    text-align: center;
+}
+
+@media only screen and (max-width: 460px) {
+
+    /* For mobile phones: */
+    .typo {
+        display: none;
+    }
+    .searchbaer{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 460px) {
+    .loginButton {
+        font-size: 15px;
+        background-color: white;
+        width: 110px;
+        padding: 3px;
+        color: #1976d2;
+        font-weight: 500;
+    }
+
+    .cart_home {
+        display: flex;
+        color: white;
+        font-weight: 500;
+        text-decoration: none;
+    }
+}
+
+@media (min-width: 900px) {
+    input.MuiInputBase-input.css-yz9k0d-MuiInputBase-input {
+        width: 35ch;
+    }
+
+    .menubar {
+        display: none !important;
+    }
+
+    .header_box {
+        padding-left: 6rem !important;
+        padding-right: 6rem !important;
+    }
+}
+
+p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: .1px;
+}
+
+.head {
+    text-decoration: none;
+    color: #fff;
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 1rem;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    font-size: 13px;
+    text-align: start;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    position: absolute;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.drop_list {
+    text-align: left;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #212121;
+}
+
+.drop_linelist {
+    list-style: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+}
+
+.dropdown-content p {
+    font-size: 13px;
+    padding-left: 1rem;
+}
+
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+    background-color: #2874f0 !important;
+}
+
+.headbar_content img {
+    display: block;
+    width: 75px;
+}
+
+.headbar_subcontent {
+    font-size: 11px;
+    font-style: italic;
+    margin-top: -1px;
+    color: yellow;
+}
+
