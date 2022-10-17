@@ -42,9 +42,7 @@
 @media only screen and (max-width: 460px) {
 
     /* For mobile phones: */
-    .typo {
-        display: none;
-    }
+   
     .searchbaer{
         display: none;
     }
@@ -59,7 +57,9 @@
         color: #1976d2;
         font-weight: 500;
     }
-
+    .typo {
+        display: none;
+    }
     .cart_home {
         display: flex;
         color: white;

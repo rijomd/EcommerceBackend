@@ -12,8 +12,10 @@ const callBackResponse = (response) => {
 const getAllcategoryList = async (data) => {
     return axios.post("/categoryAllList", data).then(callBackResponse);
 }
-
+const categoryList = async (data) => {
+    return axios.post("/categoryList", data).then(callBackResponse);
+}
 
 export const categoryService = {
-    getAllcategoryList
+    getAllcategoryList,categoryList
 };

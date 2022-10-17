@@ -8,8 +8,8 @@ export const getAllcategoryList = (category) => {
 
         new Promise((resolve, reject) => {
             dispatch({ type: categoryConstants.GETALLCATEGORYLIST_REQUEST });
-            categoryService.getAllcategoryList(category).then(function (res) {
-                const category = res.data;
+            categoryService.categoryList(category).then(function (res) {
+                const category = res.data.docs;
                 console.log(category, "GETALLCATEGORYLIST");
                 dispatch({
                     type: categoryConstants.GETALLCATEGORYLIST_SUCCESS,

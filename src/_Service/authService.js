@@ -30,22 +30,22 @@ const removeitems = () => {
 const logOut = () => {
     if (localStorage.getItem('user')) {
         let user = JSON.parse(localStorage.getItem('user'));
-        if (localStorage.getItem('price_bar')) {
-            let priceObj = JSON.parse(localStorage.getItem('price_bar'));
-            user.priceDetails_cart = priceObj;
-            axios.post("/addUser", user).then((res) => {
-                if (res.data.error_code === 0) {
-                    console.log(res.data.data, "data")
-                   return removeitems();
-                }
-                else {
-                    return false;
-                }
-            });
-        }
-        else {
+        // if (localStorage.getItem('price_bar')) {
+        //     let priceObj = JSON.parse(localStorage.getItem('price_bar'));
+        //     user.priceDetails_cart = priceObj;
+        //     axios.post("/addUser", user).then((res) => {
+        //         if (res.data.error_code === 0) {
+        //             console.log(res.data.data, "data")
+        //            return removeitems();
+        //         }
+        //         else {
+        //             return false;
+        //         }
+        //     });
+        // }
+        // else {
           return removeitems();
-        }
+        // }
     }
 
 }

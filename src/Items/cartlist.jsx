@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Header, Footer } from '../Components';
 import './item.css'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch,  } from 'react-redux';
 import { getcartlist } from '../_Actions/itemactions';
 import { EmptyCart } from './emptyCart';
 import { CartItems } from './cartItems';
@@ -37,6 +37,9 @@ export const CartList = () => {
                 cartlist = JSON.parse(localStorage.getItem('cartlist_array'));
                 setMylist(cartlist);
                 setLoading(false);
+                if(cartlist.length===0){
+                    setEmpty(true);
+                }
             } else {
                 setEmpty(true);
                 setLoading(false);

@@ -54,3 +54,27 @@ export const productListHome = (productListHome) => {
 
         });
 }
+
+export const varientList = (product) => {
+    console.log(product, "product");
+    return async (dispatch) =>
+        new Promise((resolve, reject) => {
+            dispatch({ type: productconstants.VARIENTLIST_REQUEST });
+            productService.varientList(product).then(function (res) {
+                const product = res.data.docs;
+                console.log(product, "ProductList");
+                dispatch({
+                    type: productconstants.VARIENTLIST_SUCCESS,
+                    payload: product,
+                });
+                return resolve(product);
+            }, function (err) {
+                console.log(err, "err");
+                dispatch({
+                    type: productconstants.VARIENTLIST_FAILURE,
+                    payload: err
+                });
+                return reject(err);
+            })
+        });
+}

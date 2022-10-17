@@ -1,6 +1,3 @@
-
-
-
 const addToWishList = (product) => {
     console.log(product, "addToWishList");
     let wishList = [];
@@ -9,7 +6,7 @@ const addToWishList = (product) => {
         image: product.productPictures[0],
         name: product.name,
         orginal_price: product.orginal_price,
-        sell_price: product.sell_price,
+        selling_price: product.selling_price,
     }
 
     if (localStorage.getItem('wishlist_array')) {
@@ -67,9 +64,9 @@ const addToCartList = (singleproduct) => {
     let newproduct = {
         _id: singleproduct._id,
         image: singleproduct.productPictures[0],
-        name: singleproduct.name,
+        name: singleproduct.varient_name,
         orginal_price: singleproduct.orginal_price,
-        sell_price: singleproduct.sell_price,
+        selling_price: singleproduct.selling_price,
     };
 
     if (localStorage.getItem('cartlist_array')) {
@@ -89,7 +86,7 @@ const addToCartList = (singleproduct) => {
                 newproduct
             );
             localStorage.setItem('cartlist_array', JSON.stringify(cartList));
-            return true;
+            return cartList;
         }
     }
     else {
@@ -98,7 +95,7 @@ const addToCartList = (singleproduct) => {
             newproduct
         );
         localStorage.setItem('cartlist_array', JSON.stringify(cartList));
-        return true;
+        return cartList;
     }
 
 }

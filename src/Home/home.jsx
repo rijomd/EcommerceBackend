@@ -5,6 +5,7 @@ import { CategoryHome } from '../Category/categoryHome';
 import { FlexibleCategories } from '../Category/flexibleCategories';
 import { Homebanner } from '../Banners/homebanner';
 import { ProductListInHome } from '../Product/productlistInHome';
+import { ProductBannersHome } from '../Banners/productBannersHome';
 
 export const Home = () => {
   return (
@@ -15,6 +16,8 @@ export const Home = () => {
       <Homebanner />
 
       <ProductListInHome />
+
+      <ProductBannersHome />
 
       <FlexibleCategories />
 

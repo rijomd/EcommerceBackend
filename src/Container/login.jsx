@@ -55,6 +55,7 @@ export const Login = (props) => {
             .then(function (res) {
                 setLoginsubmit(false);
                 navigate('/home');
+                window.location.reload();
             },
                 function (err) {
                     setLoginsubmit(false);

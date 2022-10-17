@@ -4,7 +4,7 @@ const initialState = {
     productArray: [],
     isListing: false,
     productlisthome: [],
-
+    varientsArray: [],
 }
 
 export const productReducer = (state = initialState, action) => {
@@ -49,6 +49,29 @@ export const productReducer = (state = initialState, action) => {
             state = {
                 ...state,
                 productlisthome: [],
+            }
+            break;
+
+        //PRODUCT VARIENTS LISTING
+        case productconstants.VARIENTLIST_REQUEST:
+            state = {
+                ...state,
+                isListing: true,
+                varientsArray: [],
+            }
+            break;
+        case productconstants.VARIENTLIST_SUCCESS:
+            state = {
+                ...state,
+                isListing: false,
+                varientsArray: action.payload,
+            }
+            break;
+        case productconstants.VARIENTLIST_FAILURE:
+            state = {
+                ...state,
+                isListing: false,
+                varientsArray: [],
             }
             break;
     }

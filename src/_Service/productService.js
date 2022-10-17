@@ -15,6 +15,9 @@ const productList = async (data) => {
 const productListHome = async (data) => {
     return axios.post("/getproductlisthome", data).then(callBackResponse);
 }
+const varientList = async (data) => {
+    return axios.post("/varientList", data).then(callBackResponse);
+}
 export const productService = {
-    productList, productListHome
+    productList, productListHome,varientList
 }

@@ -1,14 +1,28 @@
-    .carousel {
-        margin: 15px;
-        position: static;
-    }
+.carousel {
+  margin: 15px;
+  position: static;
+}
 
-    .images {
-        width: 100%;
-        height: 280px;
+.images {
+  width: 100%;
+  height: 280px;
+}
+.productbanner_home img {
+  width: 100%;
+  object-fit: contain;
+  height: auto;
+}
+.productbanner_div {
+    margin: 10px;
+}
+@media only screen and (max-width: 460px) {
+  .carousel {
+    margin: 0px;
+  }
+}
+@media only screen and (max-width: 768px) {
+    .carousel {
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
-    @media only screen and (max-width: 460px) {
-        .carousel {
-            margin: 0px;
-        }
-    }
+  }

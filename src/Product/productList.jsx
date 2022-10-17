@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import './product.css'
-import { productList } from '../_Actions/productactions';
-import { addWishlists, getWishlists } from '../_Actions/itemactions';
 import { useDispatch, useSelector } from 'react-redux';
-import { Grid } from '@mui/material';
-import { LoginModal } from "../Container";
+
 import { AlertBox } from '../Components/alertbox';
 import { Products } from "./products";
+import { LoginModal } from "../Container";
+
+import './product.css'
+import { Grid } from '@mui/material';
+
+import { varientList } from '../_Actions/productactions';
+import { addWishlists, getWishlists } from '../_Actions/itemactions';
 
 export const ProductList = (props) => {
 
-    let { id, categoryname } = props;
+    let { id } = props;
 
     const product = useSelector(state => state.product);
     const items = useSelector(state => state.items);
@@ -24,9 +27,10 @@ export const ProductList = (props) => {
     useEffect(() => {
         let query = {
             status: 1,
-            category: id
+            category: id,
+            listing:true
         }
-        dispatch(productList(query));
+        dispatch(varientList(query));
         if (localStorage.getItem('user')) {
             dispatch(getWishlists({ status: 1 }));
         }
@@ -89,9 +93,8 @@ export const ProductList = (props) => {
 
     const renderProducts = () => {
         let myarray = [];
-        let productList = product.productArray;
+        let productList = product.varientsArray;
         for (let product of productList) {
-            categoryname(product.category.name);
             if (product.productPictures && product.productPictures.length > 0) {
                 let exist = items.wishlistArray.find((x) => x.product_id._id === product._id);
                 myarray.push(
@@ -113,7 +116,7 @@ export const ProductList = (props) => {
             />}
             <div className="productlist">
                 <Grid container spacing={2}>
-                    {product.productArray && product.productArray.length > 0 ? renderProducts() : null}
+                    {product.varientsArray && product.varientsArray.length > 0 ? renderProducts() : null}
                 </Grid>
             </div>
 

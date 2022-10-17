@@ -81,7 +81,7 @@ export const Wishlist = () => {
         let myarray = [];
         if (items.wishlistArray.length > 0 && items.wishlistArray[0].product_id && items.wishlistArray[0].product_id._id) {
             for (let wishItem of items.wishlistArray) {
-                let offer = calculateOffer(wishItem.product_id.sell_price, wishItem.product_id.orginal_price);
+                let offer = calculateOffer(wishItem.product_id.selling_price, wishItem.product_id.orginal_price);
                 myarray.push(
                     <Grid container spacing={2} className='cart_block' style={{ height: "140px" }}>
                         <Grid item md={8} xs={12} >
@@ -108,7 +108,7 @@ export const Wishlist = () => {
                                     </div>
                                     <div className='cart_price'>
                                         <p className='cart_p1'>₹{wishItem.product_id && wishItem.product_id.orginal_price}</p>
-                                        <p className='cart_p2'>₹{wishItem.product_id && wishItem.product_id.sell_price}</p>
+                                        <p className='cart_p2'>₹{wishItem.product_id && wishItem.product_id.selling_price}</p>
                                         <p className='cart_p3'>{Math.round(offer)}% off</p>
                                     </div>
                                     <div className="cart_savelater">

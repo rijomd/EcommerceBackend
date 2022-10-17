@@ -6,7 +6,8 @@ import { cartOrWishListService } from '../_Service/cartandwishService'
 import { LoadingButton } from '@mui/lab';
 import { miscService } from '../_Service/miscService';
 import { useNavigate } from "react-router-dom";
-import './productsingle.css'
+import './productsingle.css';
+import { cartConstatnts } from '../_Actions/constants'
 
 export const CartOrBuy = (props) => {
 
@@ -18,21 +19,28 @@ export const CartOrBuy = (props) => {
 
     const addToCartList = async (singleproduct) => {
         setLoading(true);
-        let priceObj = dispatch(miscService.priceCalculation(singleproduct, "inc")); //price calculation for cart pprice bar
-        if (priceObj) {
-            if (localStorage.getItem('user')) {
-                addingToCart(singleproduct._id);  //logged in
-            }
-            else {
-                cartOrWishListService.addToCartList(singleproduct);  //no logined usedr
-                setLoading(false);
-            }
-        }
+     dispatch(miscService.priceCalculation(singleproduct, "inc")).then((priceObj)=>{
+         console.log(priceObj,"priceObj")
+         if (priceObj) {
+             if (localStorage.getItem('user')) {
+                 addingToCart(singleproduct._id, priceObj);  //logged in
+             }
+             else {
+                 let cartarray = cartOrWishListService.addToCartList(singleproduct);  //no logined usedr
+                 dispatch({
+                     type: cartConstatnts.GETCARTLIST_SUCCESS,
+                     payload: cartarray,
+                 });
+                 setLoading(false);
+                 navigate("../cartlist", { replace: true });
+             }
+         }
+        }) //price calculation for cart pprice bar
     }
 
     //add to cart
-    const addingToCart = (productid) => {
-        dispatch(addToCart({ product_id: productid })).then(function (res) {
+    const addingToCart = (productid, priceObj) => {
+        dispatch(addToCart({ product_id: productid, priceObj: priceObj })).then((res) => {
             setLoading(false);
             navigate("../cartlist", { replace: true });
         });
@@ -40,24 +48,35 @@ export const CartOrBuy = (props) => {
 
     const renderitems = () => {
         let myarray = [];
-
+        let newArray = [];
         let exist = false;
-        if (cartArray && cartArray.length > 0) {
-            exist = cartArray.find((x) => x.product_id._id === productData._id);
+        if (localStorage.getItem('cartlist_array')) {
+            newArray = JSON.parse(localStorage.getItem('cartlist_array'));
+            if (newArray && newArray.length > 0) {
+                exist = newArray.find((x) => x._id === productData._id);
+            }
         }
+        else {
+            newArray = cartArray;
+            if (newArray && newArray.length > 0) {
+                exist = newArray.find((x) => x.product_id._id === productData._id);
+            }
+        }
+        console.log(newArray, "cartArray")
+
         myarray.push(
             <div>
                 {
                     exist ?
-                        <Link to='/cartlist'>
-                            < LoadingButton variant="outlined" > Go To Cart</LoadingButton >
-                        </Link >
+                        < LoadingButton variant="outlined" className='cart_button'>
+                            <Link to='/cartlist' style={{textDecoration:"none"}}> Go To Cart</Link>
+                           </LoadingButton >
                         :
-                        <LoadingButton variant="contained" loadingPosition='center'
+                        <LoadingButton variant="outlined" loadingPosition='center' className='cart_button'
                             loading={isLoading} onClick={() => addToCartList(productData)}>Add To Cart
                         </LoadingButton>
                 }
-                <LoadingButton variant="contained">Buy</LoadingButton>
+                <LoadingButton variant="contained" sx={{ flex: "1" }}>Buy Item</LoadingButton>
             </div>
         )
         return myarray;
@@ -66,7 +85,7 @@ export const CartOrBuy = (props) => {
 
 
     return (
-        <div className=''>
+        <div className='cartin_singleview'>
             {renderitems()}
         </div>
     )

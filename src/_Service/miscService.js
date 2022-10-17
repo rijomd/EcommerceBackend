@@ -64,7 +64,7 @@ const decrementData = (O_price, S_price) => {
 //if delliver cahres not now future
 const priceCalculation = (productdata, type) => {
     let O_price = productdata.orginal_price;
-    let S_price = productdata.sell_price;
+    let S_price = productdata.selling_price;
 
     let priceObj = {};
     return async (dispatch) =>

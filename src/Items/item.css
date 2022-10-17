@@ -73,7 +73,7 @@
 
 .no_item {
     min-height: 85vh;
-    background-color: white;
+    /* background-color: white; */
     width: 100%;
     margin-top: -2.8rem;
 }

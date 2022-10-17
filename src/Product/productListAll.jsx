@@ -13,7 +13,6 @@ import { useMediaQuery } from '@react-hook/media-query';
 export const ProductListAll = () => {
 
     let { id } = useParams();
-    const [c_name, setCategoryname] = useState("");
     const [openSort, setOpenSortbar] = useState(false);
     const [openFilter, setOpenFilter] = useState(false);
 
@@ -45,11 +44,13 @@ export const ProductListAll = () => {
                     </Grid>
                     <Grid item md={9}>
                         <div className='product_category'>
-                            <p >{c_name}</p>
+                            {/* <p >{c_name}</p> */}
+                            <p >Related Items</p>
                             <span className=''>(Showing all products)</span>
                         </div>
                         <SortBar />
-                        <ProductList id={id} categoryname={(c_name) => setCategoryname(c_name)} />
+                        <ProductList id={id} />
+                        {/* <ProductList id={id} categoryname={(c_name) => setCategoryname(c_name)} /> */}
                     </Grid>
                 </Grid>
             </div>)
@@ -74,7 +75,7 @@ export const ProductListAll = () => {
                 {openSort && <SortBar openSort={openSort} handleCloseSort={handleCloseSort} />}
                 {openFilter && <FilterBar openFilter={openFilter} handlecloseFilter={handlecloseFilter} />}
                 <div>
-                    <ProductList id={id} categoryname={(c_name) => setCategoryname(c_name)} />
+                    <ProductList id={id} />
                 </div>
             </div>)
         }

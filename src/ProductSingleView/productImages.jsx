@@ -1,74 +1,71 @@
-import React from 'react'
-import './productsingle.css'
-import ReactImageMagnify from "react-image-magnify";
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import React, { useState } from 'react';
+import './productsingle.css';
+import Carousel from "react-material-ui-carousel";
+import { useMediaQuery } from '@react-hook/media-query';
+
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+
 
 export const ProductImages = (props) => {
 
     const { productData } = props;
+    const [imagesingle, setImageSingle] = useState('');
+
+    const changeImage = (image) => {
+        setImageSingle(image);
+    }
+    const isMobile = useMediaQuery('(max-width: 830px)'); //for mobiles only
+
 
     const renderImages = () => {
         let myarray = [];
         if (productData.productPictures && productData.productPictures.length > 0) {
-            myarray.push(
-                <div className='productimages_outline'>
-                    <div className='side_imageview'>
-                        <ul>
-                            {productArray(productData.productPictures)}
-                        </ul>
-                        <div classNm></div>
-                        
+            for (let product of productData.productPictures) {
+                myarray.push(
+                    <div className=''>
+                        <img src={product} />
                     </div>
-                    <div className='image_view'>
-                        <div className="magnifyimage">
-                            <ReactImageMagnify
-                                {...{
-                                    smallImage: {
-                                        alt: "Wristwatch by Ted Baker London",
-                                        isFluidWidth: true,
-                                        src: productData.productPictures[0],
-                                        srcSet: productData.productPictures[0],
-                                        sizes:
-                                            "(min-width: 800px) 33.5vw, (min-width: 415px) 50vw, 100vw"
-                                    },
-                                    largeImage: {
-                                        alt: "",
-                                        src: productData.productPictures[0],
-                                        width: 1200,
-                                        height: 1800
-                                    },
-                                    isHintEnabled: true
-                                }}
-                            />
-                        </div>
-
-                    </div>
-                </div>
-            );
+                )
+            }
         }
         return myarray;
     }
 
-    const productArray = (imagearray) => {
-        let images = [];
-        for (let i = 0; i < imagearray.length; i++) {
-            images.push(
-                <li className='side_imagelist'>
-                    <div className='imagelist_div'>
-                        <img src={imagearray[i]} />
-                    </div>
-                </li>
-            )
-        }
-        return images;
-    }
 
 
     return (
         <div className='renderImages'>
-            {renderImages()}
+
+            {!isMobile &&
+                <div className='productimages_outline'>
+                    <Carousel
+                        autoplay={true}
+                        animation="slide"
+                        indicators={false}
+                        navButtonsAlwaysVisible={true}
+                        cycleNavigation={true}
+                        navButtonsProps={{
+                            style: {
+                                background: "#fff",
+                                color: "#494949",
+                                borderRadius: 0,
+                                margin: 0,
+                            },
+                        }}
+                        className="prosuct_images"
+                    >
+                        {renderImages()}
+                    </Carousel>
+                </div>}
+
+
+            {isMobile &&
+                <div className=''>
+                    <AwesomeSlider>
+                        {renderImages()}
+                    </AwesomeSlider>
+                </div>}
         </div>
     )
 }

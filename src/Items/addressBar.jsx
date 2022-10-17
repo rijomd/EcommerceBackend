@@ -8,6 +8,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { getAllAdress } from '../_Actions/addressAction';
 import { Loader } from "../Components/loader";
 import { Link } from 'react-router-dom';
+import { LoginModal } from "../Container";
 
 const style = {
     position: 'absolute',
@@ -25,19 +26,38 @@ export const AddressBar = () => {
 
     const [isopen, setChangeModal] = useState(false);
     const [isLoading, setLoading] = useState(false);
+    const [loggedUser, setLoggedUser] = useState(false);
     const [selected_address, setAddress] = useState({});
+
+
     const dispatch = useDispatch();
     const addresses = useSelector(state => state.addresses);
+    const misc = useSelector(state => state.misc);
 
     useEffect(() => {
         setLoading(true);
-        dispatch(getAllAdress({ status: 1 })).then(function (res) {
+        if (localStorage.getItem('user')) {
+            dispatch(getAllAdress({ status: 1 })).then(function (res) {
+                setLoading(false);
+                setLoggedUser(true);
+                if (res.length > 0) {
+                    setAddress(res[0]);//setting selectable list
+                }
+            })
+        }
+        else {
             setLoading(false);
-            if (res.length > 0) {
-                setAddress(res[0]);//setting selectable list
-            }
-        })
+        }
     }, [])
+
+
+
+    const openLoginModal = () => {
+        dispatch({
+            type: "IS_LOGINMODAL_OPEN",
+            data: true
+        });
+    }
 
     const openChangeModal = () => {
         setChangeModal(true);
@@ -54,7 +74,7 @@ export const AddressBar = () => {
     const renderAddress = () => {
         let myArray = [];
         let address = selected_address;
-        if(address._id){
+        if (address._id) {
             myArray.push(
                 <Box className="">
                     <Box className='single_address'>
@@ -68,6 +88,12 @@ export const AddressBar = () => {
                     <Box className='address_all'>
                         <p className='adress_adres'>{address.address}</p>
                     </Box>
+                </Box>
+            );
+        }
+        else {
+            myArray.push(
+                <Box className="">
                 </Box>
             );
         }
@@ -113,9 +139,9 @@ export const AddressBar = () => {
             return <Button variant="outlined" onClick={openChangeModal}>Change</Button>
         }
         else {
-            return <Link to='/profile' style={{ textDecoration: "none" }}>
+            return loggedUser ? <Link to='/profile' style={{ textDecoration: "none" }}>
                 <Button variant="contained">Add Address</Button>
-            </Link>
+            </Link> : <Button variant="contained" onClick={openLoginModal}>Add Address</Button>
         }
     }
 
@@ -123,7 +149,7 @@ export const AddressBar = () => {
         <div>
             <Grid container spacing={2} className='adress_bar'>
                 <Grid item md={7} xs={12} className="addres_namebar" >
-                    {!isLoading ? renderAddress(addresses.adressarray) : <Loader />}
+                    {!isLoading ? renderAddress() : <Loader />}
                 </Grid>
                 <Grid item md={4} xs={12} className="addres_button" >
                     {renderButtons()}
@@ -149,7 +175,7 @@ export const AddressBar = () => {
                     {rendermyarray(addresses.adressarray)}
                 </Box>
             </Modal >
-
+            {misc.isLoginmodalOpen && <LoginModal />}
         </div >
     )
 }

@@ -30,13 +30,13 @@ export const SignUp = (props) => {
         const data = new FormData(event.currentTarget);
         let phone = data.get('phone');
         let password = data.get('password');
-        // let name = data.get('name');
+        let name = data.get('name');
         // let confirm_password = data.get('confirm_password');
 
         let user = {
             phone: phone,
             password: password,
-            // name: name,
+            name: name,
             role: 2
         }
 
@@ -48,7 +48,7 @@ export const SignUp = (props) => {
         //     }, 2000);
         //     return null;
         // }
-        if (phone) {
+        if (phone,name) {
             setSignsubmit(true);
             dispatch(userSighnUp(user)).then(function (res) {
                 setSignsubmit(false);
@@ -56,7 +56,8 @@ export const SignUp = (props) => {
                 setMsg("Suuccefully Registered");
                 setTimeout(function () {
                     setError(false);
-                    navigate('/home')
+                    navigate('/home');
+                    window.location.reload();
                 }, 2000);
             },
                 function (err) {
@@ -90,7 +91,7 @@ export const SignUp = (props) => {
                     Sign Up
                 </Typography>
                 <Box component="form" Validate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-                    {/* <TextField
+                    <TextField
                         margin="normal"
                         required
                         fullWidth
@@ -99,7 +100,7 @@ export const SignUp = (props) => {
                         name="name"
                         autoComplete="name"
                         autoFocus
-                    /> */}
+                    />
                     <TextField
                         margin="normal"
                         required
