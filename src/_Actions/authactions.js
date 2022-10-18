@@ -1,4 +1,4 @@
-import { authconstants,miscConstants } from './constants'
+import { authconstants, miscConstants } from './constants'
 import { authService } from '../_Service/authService'
 
 export const login = (user) => {
@@ -9,10 +9,13 @@ export const login = (user) => {
             authService.Login(user).then(function (res) {
                 const { token, user } = res.data;
                 let pricebar = user.priceDetails_cart;
-                console.log(user, "res");
+                console.log(pricebar, "pricebar");
+                if (typeof (pricebar) !== "undefined") {
+                    console.log(pricebar, "pricebar11111111111");
+                    localStorage.setItem('price_bar', JSON.stringify(pricebar))
+                }
                 localStorage.setItem('token', token);
                 localStorage.setItem('user', JSON.stringify(user));
-                localStorage.setItem('price_bar', JSON.stringify(pricebar));
                 localStorage.removeItem("cartlist_array");
                 dispatch({
                     type: authconstants.LOGIN_SUCCESS,

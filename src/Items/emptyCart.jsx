@@ -26,7 +26,7 @@ export const EmptyCart = () => {
         });
     }
     return (
-        <div className="no_item">
+        <div className="no_item" style={{backgroundColor:"#fff"}}>
             <img src={images} alt="hello" />
             {!isLoggedin && <h1>Missing Your Cart Items ?</h1>}
             {!isLoggedin && <p>Login to see you added previously</p>}

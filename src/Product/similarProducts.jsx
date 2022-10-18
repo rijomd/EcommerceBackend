@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from '@react-hook/media-query';
 
@@ -13,17 +13,23 @@ import './product.css'
 
 export const SimilarProducts = (props) => {
 
-    const { categoryid ,id} = props;
+    const { categoryid, id, history } = props;
     const dispatch = useDispatch();
 
     const product = useSelector(state => state.product);
     const items = useSelector(state => state.items);
     const misc = useSelector(state => state.misc);
-
+    const [counter, setCounter] = useState(6)
+	useEffect(()=>{
+        console.log(categoryid,"categoryid");
+		setCounter(counter+1)
+	},[])
     const isMobile = useMediaQuery('(max-width: 768px)'); //for mobiles only
 
     useEffect(() => {
+        console.log(`You changed the page to: ${history.pathname}`);
         if (categoryid) {
+            console.log(categoryid,"categoryid");
             let query = {
                 status: 1,
                 category: categoryid,
@@ -34,10 +40,18 @@ export const SimilarProducts = (props) => {
                 dispatch(getWishlists({ status: 1 }));
             }
         }
-    }, [id]);
+    }, [history]);
 
-
-
+    const [loading, setLoading] = useState(true)
+    const load = () => {
+        setTimeout(()=>setLoading(false),5000);
+    }
+    if(loading){
+        return <h1>Loading</h1>
+    }
+    return (
+        <h1>Complete</h1>
+    )
     //add to wishlist
     const addTowishlists = (productid) => {
         console.log("addTowishlists")
@@ -99,6 +113,7 @@ export const SimilarProducts = (props) => {
             <div className="productlist">
                 <h1>
                     Similar Products
+                    {counter}
                 </h1>
 
                 <Grid container spacing={2}>

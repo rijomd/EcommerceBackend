@@ -43,10 +43,11 @@ export const Wishlist = () => {
     }, []);
 
 
-    const removefromWishList = (productid) => {
+    const removefromWishList = (wishlistitem) => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         setLoading(true);
-        dispatch(addWishlists({ product_id: productid, delete: true }, 2)).then(function (res) {
+        wishlistitem.delete=true;
+        dispatch(addWishlists(wishlistitem)).then(function (res) {
             setAlert(true);
             setLoading(false);
             setTimeout(function () {

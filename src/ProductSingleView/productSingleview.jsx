@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams,useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 
 import { varientList } from '../_Actions/productactions';
@@ -17,8 +17,11 @@ import { Grid } from '@mui/material';
 export const ProductSingleview = () => {
 
     let { id } = useParams();
+    const history = useLocation();
     const dispatch = useDispatch();
     const items = useSelector(state => state.items);
+
+
     const[mycartArray,setMycartarray]=useState([]);
     const [varientsArray, setvarientsArray] = useState([]); // no of varients of product
     const [atribute_value, setAtribute_value] = useState([]); // varients attribute values
@@ -121,7 +124,7 @@ export const ProductSingleview = () => {
         <div>
             <Header />
             {isLoading ? <ProductSingleviewSkeleton /> : renderView()}
-            <SimilarProducts categoryid={categoryid} id={id}/>
+            <SimilarProducts categoryid={categoryid} id={id} history={history}/>
             <Footer />
         </div>
     )
