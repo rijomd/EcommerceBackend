@@ -5,6 +5,7 @@ import { optionsReducer } from './optionReducer';
 import { productReducer } from './productReducer';
 import { itemReducer } from './itemReducer';
 import { adressReducer } from './addressReducer';
+import { ordersReducer } from './orderReducer';
 
 import { combineReducers } from 'redux';
 
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     options: optionsReducer,
     product: productReducer,
     items: itemReducer,
-    addresses: adressReducer
+    addresses: adressReducer,
+    order:ordersReducer
 });
 
 export default rootReducer;

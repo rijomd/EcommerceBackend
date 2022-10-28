@@ -179,7 +179,7 @@ export const Cart = (props) => {
                                     <div className="seller_crt">
                                         <h4>Seller :{cart.user_id.name} </h4>
                                         {/* <img className="img_assured" src={images} /> */}
-                                        <p>G-SHOPIFY</p>
+                                        <p style={{margin:"6px"}}>G-SHOPIFY</p>
                                     </div>
                                     <div className='cart_price'>
                                         <p className='cart_p1'>₹{cart.product_id && cart.product_id.orginal_price}</p>

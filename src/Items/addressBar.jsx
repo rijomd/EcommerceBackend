@@ -41,6 +41,10 @@ export const AddressBar = () => {
                 setLoading(false);
                 setLoggedUser(true);
                 if (res.length > 0) {
+                    dispatch({
+                        type: "SET_ADDRESS",
+                        data: res[0]._id
+                    });
                     setAddress(res[0]);//setting selectable list
                 }
             })
@@ -66,8 +70,13 @@ export const AddressBar = () => {
         setChangeModal(false);
     }
     const selectAddress = (address) => {
+        dispatch({
+            type: "SET_ADDRESS",
+            data: address._id
+        });
         setAddress(address);
         setChangeModal(false);
+
     }
 
     //selectable list
@@ -139,7 +148,7 @@ export const AddressBar = () => {
             return <Button variant="outlined" onClick={openChangeModal}>Change</Button>
         }
         else {
-            return loggedUser ? <Link to='/profile' style={{ textDecoration: "none" }}>
+            return loggedUser ? <Link to='/profile/account' style={{ textDecoration: "none" }}>
                 <Button variant="contained">Add Address</Button>
             </Link> : <Button variant="contained" onClick={openLoginModal}>Add Address</Button>
         }

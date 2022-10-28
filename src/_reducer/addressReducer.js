@@ -4,6 +4,7 @@ const initialState = {
     adressarray: [],
     isListing: false,
     adress: {},
+    selected_address: ""
 }
 
 export const adressReducer = (state = initialState, action) => {
@@ -53,6 +54,15 @@ export const adressReducer = (state = initialState, action) => {
                 ...state,
                 isListing: false,
                 adress: {},
+            }
+            break;
+
+
+
+        case "SET_ADDRESS":
+            state = {
+                ...state,
+                selected_address: action.data,
             }
             break;
     }

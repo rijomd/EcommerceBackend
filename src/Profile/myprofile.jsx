@@ -1,23 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { Header, Footer } from '../Components';
+import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from '@react-hook/media-query';
+import { Link, useParams } from "react-router-dom";
+
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
+
 import images from "../_Images/user.png";
 import './profile.css';
-import { Link, useParams } from "react-router-dom";
+
+// icons
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { AddressList } from '../Adress';
-import { Wishlist } from '../Items';
-import { useMediaQuery } from '@react-hook/media-query';
 import EditLocationIcon from '@mui/icons-material/EditLocation';
 import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import HelpIcon from '@mui/icons-material/Help';
+
+import { Header, Footer } from '../Components';
+import { AddressList } from '../Adress';
+import { Wishlist } from '../Items';
+import { MyOrder} from '../CheckOut';
+
 
 export const Myprofile = () => {
 
@@ -25,6 +32,7 @@ export const Myprofile = () => {
     const [name, setName] = useState("");
     const [isWishlist, setWishlist] = useState(false);
     const [isAccount, setAccount] = useState(false);
+    const [isOrders, setMyorder] = useState(false);
     const [isMyAddress, setAddress] = useState(false);
     const isDesktop = useMediaQuery('(min-width: 830px)'); //for isDesktop only
 
@@ -39,24 +47,38 @@ export const Myprofile = () => {
         if (slug === "account") {
             setAccount(true);
         }
+        if (slug === "adress") {
+            setAddress(true);
+        }
+        if (slug === "orders") {
+            setMyorder(true);
+        }
     }, []);
 
     const showProfile = () => {
         setWishlist(false);
         setAddress(false);
         setAccount(true);
+        setMyorder(false);
     }
     const showAdress = () => {
         setAddress(true);
         setWishlist(false);
         setAccount(false);
+        setMyorder(false);
     }
     const showWishlists = () => {
         setWishlist(true);
         setAddress(false);
         setAccount(false);
+        setMyorder(false);
     }
-
+    const showMyorders = () => {
+        setMyorder(true);
+        setWishlist(false);
+        setAddress(false);
+        setAccount(false);
+    }
 
 
     // headrer bar in mobile 
@@ -108,7 +130,7 @@ export const Myprofile = () => {
                             <span><ContactPageIcon sx={{ width: "20px", height: "20px", color: "#2874f0" }} /></span>
                             <p>Edit Profile</p>
                         </Link>
-                        <Link to='/account' className='account_detils_mobile'>
+                        <Link to='/adress' className='account_detils_mobile'>
                             <span><EditLocationIcon sx={{ width: "20px", height: "20px", color: "#2874f0" }} /></span>
                             <p>Manage Addresses</p>
                         </Link>
@@ -149,7 +171,7 @@ export const Myprofile = () => {
         <div>
             <div className='order'>
                 <AccountBalanceWalletIcon sx={{ width: "20px", height: "20px", color: "#2874f0" }} />
-                <Link to="">My Orders</Link>
+                <Link to="" onClick={showMyorders}>My Orders</Link>
             </div>
 
             <div className='account_setting'>
@@ -212,6 +234,7 @@ export const Myprofile = () => {
                     {/* addressitems */}
                     {isMyAddress && <AddressList />}
                     {isWishlist && <Wishlist />}
+                    {isOrders && <MyOrder />}
                 </div>
             </Grid>
         </Grid>

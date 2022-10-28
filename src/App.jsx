@@ -10,12 +10,12 @@ import React from "react";
 import { LoginPage } from './Container';
 import { Home } from './Home';
 import { FlexiblecataoriesList } from './Category';
-import { ProductListFromHome,  ProductListAll } from './Product';
+import { ProductListFromHome, ProductListAll } from './Product';
 import { ProductSingleview } from './ProductSingleView';
 import { Wishlist, CartList } from './Items';
 import { Myprofile } from './Profile';
 import { AddressList } from './Adress';
-import { Ordersummery } from './CheckOut';
+import { Ordersummery ,OrderSuccess,MyOrder} from './CheckOut';
 
 
 
@@ -47,10 +47,15 @@ const App = () => {
           <Route path="/checkoutlist"
             element={<PrivateRoutes> <Ordersummery /> </PrivateRoutes>}
           />
-          <Route path="/account"
+          <Route path="/adress"
             element={<PrivateRoutes> <AddressList /> </PrivateRoutes>}
           />
-
+           <Route path="/orders"
+            element={<PrivateRoutes> <MyOrder /> </PrivateRoutes>}
+          />
+          <Route path="/ordersuccess"
+            element={<PrivateRoutes> <OrderSuccess /> </PrivateRoutes>}
+          />
         </Routes>
       </Router>
     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Header, AlertBox } from '../Components';
+import { Header, AlertBox,Footer } from '../Components';
 import { Grid, Box } from '@mui/material';
 import { Link } from "react-router-dom";
 import './item.css'
@@ -140,6 +140,8 @@ export const Wishlist = () => {
             < Grid container spacing={2} className="items_wishlist" >
                 {rendermylists()}
             </Grid>
+            {isMobile && <Footer />}
+
         </Box >
     )
 }

@@ -42,16 +42,7 @@ export const SimilarProducts = (props) => {
         }
     }, [history]);
 
-    const [loading, setLoading] = useState(true)
-    const load = () => {
-        setTimeout(()=>setLoading(false),5000);
-    }
-    if(loading){
-        return <h1>Loading</h1>
-    }
-    return (
-        <h1>Complete</h1>
-    )
+  
     //add to wishlist
     const addTowishlists = (productid) => {
         console.log("addTowishlists")

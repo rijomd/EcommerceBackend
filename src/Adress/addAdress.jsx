@@ -68,6 +68,7 @@ export const AddressAdd = (props) => {
         dispatch(addAdress(adress)).then(function (res) {
             if (res) {
                 setLoading(false);
+                closeModal();
             }
         })
     }
