@@ -3,7 +3,7 @@ import { LoadingButton } from '@mui/lab';
 
 export const PaymentOptions = (props) => {
 
-  const {cashOnDelivery}=props;
+    const { cashOnDelivery, onlinPayment } = props;
 
     return (
         <div className='payment'>
@@ -11,7 +11,7 @@ export const PaymentOptions = (props) => {
                 COD
             </LoadingButton >
 
-            <LoadingButton variant="outlined" >
+            <LoadingButton variant="outlined" onClick={onlinPayment} >
                 ONLINE
             </LoadingButton >
         </div>

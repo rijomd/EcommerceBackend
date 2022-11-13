@@ -7,6 +7,8 @@ import { Header, Footer } from '../Components';
 import { PaymentOptions } from './paymentOptions';
 
 import { addOrder } from '../_Actions/orderAction';
+import axios from '../_helpers/axios';
+// import razorpay from "razorpay";
 
 import { Grid } from '@mui/material';
 import './order.css';
@@ -30,6 +32,7 @@ export const Ordersummery = () => {
     }, []);
 
 
+    // cod just ordering
     const cashOnDelivery = () => {
         let price;
         if (localStorage.getItem('price_bar')) {
@@ -46,6 +49,67 @@ export const Ordersummery = () => {
             navigate("/ordersuccess");
         })
     }
+
+
+    // razor pay
+    // const onlinPayment = () => {
+    //     const script = document.createElement("script");
+    //     script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+    //     script.onerror = async () => {
+    //         alert("error");
+    //     }
+    //     script.onload = async () => {
+    //         try {
+    //             let price;
+    //             if (localStorage.getItem('price_bar')) {
+    //                 let priceObj = JSON.parse(localStorage.getItem('price_bar'));
+    //                 price = priceObj.total_price
+    //             }
+    //             let data = {
+    //                 total_price: price + '00'
+    //             }
+    //             let response = await axios.post("/createOrder", data);
+    //             console.log(response, "response");
+    //             const { amount, id, order_id, paymentId } = response.data;
+    //             let key = await axios.post("/razorpay_key", {});
+    //             console.log(key, "key");
+
+    //             const options = {
+    //                 "key": "YOUR_KEY_ID", // Enter the Key ID generated from the Dashboard
+    //                 "amount": amount.toString(),
+    //                 "currency": "INR",
+    //                 "name": "G-shop",
+    //                 "description": "Online Payment",
+    //                 // "image": "https://example.com/your_logo",
+    //                 "order_id": order_id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    //                 "handler": async function (response) {
+    //                     let query = {
+    //                         razorpay_payment_id: response.razorpay_payment_id,
+    //                         razorpay_order_id: response.razorpay_order_id,
+    //                         razorpay_signature: response.razorpay_signature,
+    //                         address_id: addresses.selected_address,
+    //                         total_price: price
+    //                     }
+    //                     dispatch(addOrder(query)).then((res) => {
+    //                         navigate("/ordersuccess");
+    //                     })
+    //                 },
+    //                 "theme": {
+    //                     "color": "#3399cc"
+    //                 }
+    //             };
+
+    //             let rzp1 = new razorpay(options);
+    //             rzp1.open();
+    //         }
+    //         catch (error) {
+    //             alert("error");
+    //         }
+    //         document.body.appendChild(script);
+    //     }
+    // }
+
 
     return (
         <div className="">
@@ -74,7 +138,7 @@ export const Ordersummery = () => {
                         <p>Payment Option</p>
                     </div>
                     <div style={{ backgroundColor: "#fff" }}>
-                        <PaymentOptions cashOnDelivery={cashOnDelivery} />
+                        {/* <PaymentOptions cashOnDelivery={cashOnDelivery} onlinPayment={onlinPayment} /> */}
                     </div>
                 </Grid>
                 <Grid item md={4} xs={11} >
